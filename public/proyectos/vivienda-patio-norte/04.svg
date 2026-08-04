@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" role="img" aria-label="Imagen de relleno">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3633"/>
+      <stop offset="55%" stop-color="#25221f"/>
+      <stop offset="100%" stop-color="#1c1a18"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#a9a199" stroke-opacity="0.09" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="72%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <rect width="1600" height="1100" fill="url(#grid)"/>
+  <g><rect x="260" y="240" width="1080" height="46" fill="#6a635b" fill-opacity="0.24" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><rect x="260" y="286" width="1080" height="26" fill="#6a635b" fill-opacity="0.33" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><rect x="260" y="312" width="1080" height="120" fill="#6a635b" fill-opacity="0.42" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><circle cx="312.0" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="312.0" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="387.1" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="387.1" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="462.2" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="462.2" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="537.2" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="537.2" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="612.3" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="612.3" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="687.4" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="687.4" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="762.5" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="762.5" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="837.5" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="837.5" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="912.6" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="912.6" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="987.7" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="987.7" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1062.8" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1062.8" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1137.8" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1137.8" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1212.9" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1212.9" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1288.0" cy="340" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><circle cx="1288.0" cy="404" r="9" fill="none" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="3"/><rect x="260" y="432" width="1080" height="22" fill="#6a635b" fill-opacity="0.51" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><rect x="260" y="454" width="1080" height="62" fill="#6a635b" fill-opacity="0.60" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><rect x="260" y="516" width="1080" height="30" fill="#6a635b" fill-opacity="0.69" stroke="#a9a199" stroke-opacity="0.55" stroke-width="2"/><line x1="110" y1="284" x2="380" y2="284" stroke="#b08a52" stroke-opacity="0.65" stroke-width="2"/><circle cx="380" cy="284" r="6" fill="#b08a52" fill-opacity="0.75"/><line x1="110" y1="344" x2="380" y2="344" stroke="#b08a52" stroke-opacity="0.65" stroke-width="2"/><circle cx="380" cy="344" r="6" fill="#b08a52" fill-opacity="0.75"/><line x1="110" y1="446" x2="380" y2="446" stroke="#b08a52" stroke-opacity="0.65" stroke-width="2"/><circle cx="380" cy="446" r="6" fill="#b08a52" fill-opacity="0.75"/><line x1="110" y1="507" x2="380" y2="507" stroke="#b08a52" stroke-opacity="0.65" stroke-width="2"/><circle cx="380" cy="507" r="6" fill="#b08a52" fill-opacity="0.75"/><line x1="180" y1="586" x2="1420" y2="586" stroke="#a9a199" stroke-opacity="0.45" stroke-width="3"/></g>
+  <rect width="1600" height="1100" fill="url(#vignette)"/>
+
+  <g font-family="Futura, 'Century Gothic', 'Trebuchet MS', sans-serif">
+    <text x="72" y="96" fill="#e7e3dd" fill-opacity="0.85" font-size="26" font-weight="700" letter-spacing="6">DETALLE</text>
+    <text x="72" y="134" fill="#e7e3dd" fill-opacity="0.5" font-size="22" letter-spacing="2">Vivienda Patio Norte</text>
+
+    <g transform="translate(72 1026)">
+      <text x="0" y="0" fill="#e7e3dd" fill-opacity="0.9" font-size="34" font-weight="700" letter-spacing="1">F114</text>
+      <line x1="86" y1="-26" x2="86" y2="6" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="104" y="0" fill="#e7e3dd" fill-opacity="0.6" font-size="20" letter-spacing="4">ESTUDIO DE ARQUITECTURA</text>
+    </g>
+
+    <text x="1528" y="1026" text-anchor="end" fill="#b08a52" fill-opacity="0.85" font-size="18" font-weight="700" letter-spacing="4">IMAGEN DE RELLENO</text>
+  </g>
+</svg>

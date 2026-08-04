@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" role="img" aria-label="Imagen de relleno">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3633"/>
+      <stop offset="55%" stop-color="#25221f"/>
+      <stop offset="100%" stop-color="#1c1a18"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#a9a199" stroke-opacity="0.09" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="72%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <rect width="1600" height="1100" fill="url(#grid)"/>
+  <g><line x1="250" y1="140" x2="1350" y2="140" stroke="#b08a52" stroke-opacity="0.7" stroke-width="2"/><line x1="250" y1="122" x2="250" y2="158" stroke="#b08a52" stroke-opacity="0.7" stroke-width="2"/><line x1="1350" y1="122" x2="1350" y2="158" stroke="#b08a52" stroke-opacity="0.7" stroke-width="2"/><line x1="180" y1="210" x2="180" y2="850" stroke="#b08a52" stroke-opacity="0.7" stroke-width="2"/><rect x="615" y="676" width="118" height="115" fill="none" stroke="#a9a199" stroke-opacity="0.34" stroke-width="3"/><rect x="636" y="499" width="167" height="136" fill="none" stroke="#a9a199" stroke-opacity="0.34" stroke-width="3"/><rect x="962" y="697" width="180" height="135" fill="none" stroke="#a9a199" stroke-opacity="0.34" stroke-width="3"/><rect x="629" y="328" width="160" height="120" fill="none" stroke="#a9a199" stroke-opacity="0.34" stroke-width="3"/><rect x="606" y="516" width="117" height="74" fill="none" stroke="#a9a199" stroke-opacity="0.34" stroke-width="3"/><rect x="250" y="210" width="1100" height="640" fill="none" stroke="#a9a199" stroke-opacity="0.75" stroke-width="16"/><rect x="638" y="210" width="16" height="640" fill="#a9a199" fill-opacity="0.55"/><rect x="1061" y="210" width="16" height="640" fill="#a9a199" fill-opacity="0.55"/><rect x="638" y="552" width="712" height="16" fill="#a9a199" fill-opacity="0.55"/><path d="M 699.3163164332509 466.7969846352935 L 759.3163164332509 466.7969846352935 A 60 60 0 0 1 699.3163164332509 526.7969846352935" fill="none" stroke="#a9a199" stroke-opacity="0.5" stroke-width="3"/><path d="M 532.8242877405137 439.93363317102194 L 592.8242877405137 439.93363317102194 A 60 60 0 0 1 532.8242877405137 499.93363317102194" fill="none" stroke="#a9a199" stroke-opacity="0.5" stroke-width="3"/><path d="M 1119.5311210304499 659.4331348501146 L 1179.5311210304499 659.4331348501146 A 60 60 0 0 1 1119.5311210304499 719.4331348501146" fill="none" stroke="#a9a199" stroke-opacity="0.5" stroke-width="3"/><path d="M 1069.622054360807 373.7208962626755 L 1129.622054360807 373.7208962626755 A 60 60 0 0 1 1069.622054360807 433.7208962626755" fill="none" stroke="#a9a199" stroke-opacity="0.5" stroke-width="3"/></g>
+  <rect width="1600" height="1100" fill="url(#vignette)"/>
+
+  <g font-family="Futura, 'Century Gothic', 'Trebuchet MS', sans-serif">
+    <text x="72" y="96" fill="#e7e3dd" fill-opacity="0.85" font-size="26" font-weight="700" letter-spacing="6">PLANTA</text>
+    <text x="72" y="134" fill="#e7e3dd" fill-opacity="0.5" font-size="22" letter-spacing="2">Casa Modular El Alto</text>
+
+    <g transform="translate(72 1026)">
+      <text x="0" y="0" fill="#e7e3dd" fill-opacity="0.9" font-size="34" font-weight="700" letter-spacing="1">F114</text>
+      <line x1="86" y1="-26" x2="86" y2="6" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="104" y="0" fill="#e7e3dd" fill-opacity="0.6" font-size="20" letter-spacing="4">ESTUDIO DE ARQUITECTURA</text>
+    </g>
+
+    <text x="1528" y="1026" text-anchor="end" fill="#b08a52" fill-opacity="0.85" font-size="18" font-weight="700" letter-spacing="4">IMAGEN DE RELLENO</text>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" role="img" aria-label="Imagen de relleno">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3633"/>
+      <stop offset="55%" stop-color="#25221f"/>
+      <stop offset="100%" stop-color="#1c1a18"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#a9a199" stroke-opacity="0.09" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="72%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <rect width="1600" height="1100" fill="url(#grid)"/>
+  <g opacity="0.95"><line x1="0" y1="885.0" x2="1600" y2="885.0" stroke="#a9a199" stroke-opacity="0.28" stroke-width="2"/><g transform="translate(529.8 963.3) scale(1.2476)"><polygon points="-138.3,-77.0 -138.3,-212.3 -41.3,-266.3 -41.3,-131.0" fill="#6a635b" fill-opacity="0.95" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="-41.3,-131.0 -41.3,-266.3 81.2,-198.1 81.2,-62.8" fill="#4c4743" fill-opacity="0.98" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="-15.8,-144.1 81.2,-198.1 -41.3,-266.3 -138.3,-212.3" fill="#a9a199" fill-opacity="0.8" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="-124.5,-161.1 -124.5,-370.5 88.9,-489.3 88.9,-279.9" fill="#6a635b" fill-opacity="0.95" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="88.9,-279.9 88.9,-489.3 323.8,-358.5 323.8,-149.2" fill="#4c4743" fill-opacity="0.98" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="110.4,-239.7 323.8,-358.5 88.9,-489.3 -124.5,-370.5" fill="#a9a199" fill-opacity="0.8" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="101.1,-237.5 101.1,-307.0 314.5,-425.8 314.5,-356.3" fill="#6a635b" fill-opacity="0.95" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="314.5,-356.3 314.5,-425.8 439.3,-356.3 439.3,-286.8" fill="#4c4743" fill-opacity="0.98" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="225.9,-237.5 439.3,-356.3 314.5,-425.8 101.1,-307.0" fill="#a9a199" fill-opacity="0.8" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="264.7,-348.4 264.7,-513.4 419.9,-599.8 419.9,-434.8" fill="#6a635b" fill-opacity="0.95" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="419.9,-434.8 419.9,-599.8 571.4,-515.5 571.4,-350.4" fill="#4c4743" fill-opacity="0.98" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/><polygon points="416.2,-429.1 571.4,-515.5 419.9,-599.8 264.7,-513.4" fill="#a9a199" fill-opacity="0.8" stroke="#25221f" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/></g></g>
+  <rect width="1600" height="1100" fill="url(#vignette)"/>
+
+  <g font-family="Futura, 'Century Gothic', 'Trebuchet MS', sans-serif">
+    <text x="72" y="96" fill="#e7e3dd" fill-opacity="0.85" font-size="26" font-weight="700" letter-spacing="6">RENDER</text>
+    <text x="72" y="134" fill="#e7e3dd" fill-opacity="0.5" font-size="22" letter-spacing="2">Vivienda Patio Norte</text>
+
+    <g transform="translate(72 1026)">
+      <text x="0" y="0" fill="#e7e3dd" fill-opacity="0.9" font-size="34" font-weight="700" letter-spacing="1">F114</text>
+      <line x1="86" y1="-26" x2="86" y2="6" stroke="#e7e3dd" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="104" y="0" fill="#e7e3dd" fill-opacity="0.6" font-size="20" letter-spacing="4">ESTUDIO DE ARQUITECTURA</text>
+    </g>
+
+    <text x="1528" y="1026" text-anchor="end" fill="#b08a52" fill-opacity="0.85" font-size="18" font-weight="700" letter-spacing="4">IMAGEN DE RELLENO</text>
+  </g>
+</svg>

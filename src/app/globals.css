@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #201d1b;
+  --color-carbon: #2a2725;
+  --color-charcoal: #3a3633;
+  --color-graphite: #55504b;
+  --color-stone: #6f6862;
+  --color-sand: #c9c2b8;
+  --color-bone: #f5f3f0;
+  /* `brass` se usa sobre fondos oscuros; `brass-ink` es la versión con
+     contraste suficiente sobre los fondos claros. */
+  --color-brass: #b08a52;
+  --color-brass-ink: #8a6832;
+
+  --font-display: var(--font-futura), "Century Gothic", "Trebuchet MS", ui-sans-serif, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 18px 40px -24px rgba(32, 29, 27, 0.55);
+  --shadow-raised: 0 30px 70px -35px rgba(32, 29, 27, 0.7);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: var(--color-charcoal);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@utility text-overline {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(138, 131, 123, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 131, 123, 0.16) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Entrada progresiva al hacer scroll. Solo se oculta el contenido si hay
+   JavaScript disponible para volver a mostrarlo. */
+@media (scripting: enabled) {
+  [data-reveal=""] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal=""] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
