@@ -37,7 +37,7 @@ export function SectionHeading({
           {overline}
         </p>
         <h2
-          className={`mt-4 text-3xl leading-[1.1] font-bold text-justify sm:text-4xl lg:text-[2.75rem] ${
+          className={`mt-4 text-3xl leading-[1.1] font-bold text-balance sm:text-4xl lg:text-[2.75rem] ${
             isLight ? "text-white" : "text-charcoal"
           }`}
         >
@@ -45,9 +45,9 @@ export function SectionHeading({
         </h2>
         {description ? (
           <p
-            className={`mt-5 text-base leading-relaxed text-justify sm:text-lg ${
-              isLight ? "text-sand/80" : "text-graphite"
-            }`}
+            className={`mt-5 text-base leading-relaxed sm:text-lg ${
+              align === "center" ? "text-pretty" : "text-justify"
+            } ${isLight ? "text-sand/80" : "text-graphite"}`}
           >
             {description}
           </p>

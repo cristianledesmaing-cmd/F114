@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #201d1b;
-  --color-carbon: #2a2725;
-  --color-charcoal: #3a3633;
-  --color-graphite: #55504b;
-  --color-stone: #6f6862;
-  --color-sand: #c9c2b8;
-  --color-bone: #f5f3f0;
-  /* `brass` se usa sobre fondos oscuros; `brass-ink` es la versión con
-     contraste suficiente sobre los fondos claros. */
-  --color-brass: #b08a52;
-  --color-brass-ink: #8a6832;
+  /* Neutros alineados a la paleta Obra (grafito #2D2E33). */
+  --color-ink: #1a1b1e;
+  --color-carbon: #2d2e33;
+  --color-charcoal: #3a3b40;
+  --color-graphite: #5c5d63;
+  --color-stone: #7a7b80;
+  --color-sand: #c8c8cb;
+  --color-bone: #f4f4f5;
+  /* Acento naranja de obra: `brass` en oscuro, `brass-ink` en claro. */
+  --color-brass: #f07a36;
+  --color-brass-ink: #e8641b;
 
   --font-display: var(--font-futura), "Century Gothic", "Trebuchet MS", ui-sans-serif, sans-serif;
   --font-sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

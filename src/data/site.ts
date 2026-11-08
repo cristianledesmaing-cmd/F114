@@ -1,19 +1,19 @@
 /**
- * Datos institucionales y de contacto de F114.
+ * Datos institucionales y de contacto de Nodo Ingeniería & Arquitectura.
  *
  * PENDIENTE: los valores marcados con `PROVISORIO` son de relleno.
  * Reemplazarlos por los definitivos no requiere tocar ningún componente.
  */
 
 export const site = {
-  name: "F114",
-  fullName: "F114 Estudio de Arquitectura",
-  tagline: "Estudio de arquitectura",
+  name: "Nodo",
+  fullName: "Nodo Ingeniería & Arquitectura",
+  tagline: "Ingeniería & Arquitectura",
   claim: "Anteproyecto, cálculo estructural y proyecto",
   description:
-    "Estudio de arquitectura e ingeniería. Desarrollamos anteproyectos, cálculo estructural y documentación de proyecto para obras de vivienda, comercio e industria.",
+    "Ingeniería y arquitectura en un mismo equipo. Desarrollamos anteproyectos, cálculo estructural y documentación de proyecto para obras de vivienda, comercio e industria.",
   // PROVISORIO: reemplazar por el dominio definitivo antes de publicar.
-  url: "https://www.f114estudio.com.ar",
+  url: "https://www.nodoingenieria.com.ar",
   locale: "es_AR",
   foundedYear: 2021,
   // PROVISORIO
@@ -25,22 +25,32 @@ export const site = {
   },
 } as const;
 
+export const brand = {
+  lockupOnDark: "/brand/nodo-horizontal-obra-claro.svg",
+  lockupOnLight: "/brand/nodo-horizontal-obra.svg",
+  markOnDark: "/brand/nodo-simbolo-obra-claro.svg",
+  markOnLight: "/brand/nodo-simbolo-obra.svg",
+  lockupWidth: 730,
+  lockupHeight: 256,
+  markSize: 256,
+} as const;
+
 export const contact = {
   email: {
     // PROVISORIO
-    address: "contacto@f114estudio.com.ar",
+    address: "contacto@nodoingenieria.com.ar",
     subject: "Consulta desde el sitio web",
   },
   whatsapp: {
-    // PROVISORIO: solo dígitos, con código de país y de área, sin "+" ni espacios.
-    number: "5493420000000",
-    // PROVISORIO: como se muestra en pantalla.
-    display: "+54 9 342 000-0000",
-    message: "Hola F114, quisiera consultar por un proyecto.",
+    // Solo dígitos, con código de país y de área, sin "+" ni espacios.
+    number: "5493624888895",
+    // Como se muestra en pantalla.
+    display: "+54 9 362 488-8895",
+    message: "Hola, quisiera consultar por un proyecto con Nodo.",
   },
   instagram: {
     // PROVISORIO
-    handle: "@f114.estudio",
+    handle: "@nodo.ingenieria",
     url: "https://www.instagram.com/",
   },
   schedule: "Lunes a viernes, 9 a 18 h",
@@ -62,7 +72,7 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Estudio", href: "/#estudio" },
+  { label: "Nodo", href: "/#nodo" },
   { label: "Servicios", href: "/#servicios" },
   { label: "Proyectos", href: "/#proyectos" },
   { label: "Sistemas", href: "/#sistemas" },

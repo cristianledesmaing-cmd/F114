@@ -126,16 +126,11 @@ export type TeamMember = {
   title: string;
   description: string;
   focus: string[];
+  /** Foto de perfil opcional; si falta, se reserva el espacio visual. */
+  photo?: string;
 };
 
 export const team: TeamMember[] = [
-  {
-    role: "Arquitecto",
-    title: "Diseño y proyecto",
-    description:
-      "Define el partido arquitectónico, la materialidad y la documentación de proyecto, desde el anteproyecto hasta los detalles constructivos.",
-    focus: ["Partido arquitectónico", "Modelado 3D y renders", "Documentación ejecutiva"],
-  },
   {
     role: "Maestro mayor de obras",
     title: "Obra y costos",
@@ -144,10 +139,19 @@ export const team: TeamMember[] = [
     focus: ["Cómputo y presupuesto", "Planificación de obra", "Seguimiento técnico"],
   },
   {
-    role: "Ingeniero",
+    role: "Ingeniero civil",
+    title: "Dirección y proyectos",
+    description:
+      "Coordina el desarrollo del proyecto, alinea diseño, obra y documentación, y acompaña la dirección técnica hasta la ejecución.",
+    focus: ["Dirección de proyecto", "Coordinación técnica", "Seguimiento de obra"],
+    photo: "/team/ingeniero-direccion.jpg",
+  },
+  {
+    role: "Ingeniero civil",
     title: "Cálculo estructural",
     description:
       "Dimensiona y verifica la estructura en hormigón armado, acero y sistemas livianos, y elabora las memorias de cálculo correspondientes.",
     focus: ["Análisis de cargas", "Memoria de cálculo", "Planos de estructura"],
+    photo: "/team/ingeniero-calculo.png",
   },
 ];

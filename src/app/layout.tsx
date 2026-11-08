@@ -29,7 +29,8 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.fullName,
   keywords: [
-    "estudio de arquitectura",
+    "ingeniería y arquitectura",
+    "estudio de ingeniería",
     "cálculo estructural",
     "anteproyecto",
     "proyecto ejecutivo",

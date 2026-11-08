@@ -11,7 +11,7 @@ import {
   PinIcon,
   WhatsappIcon,
 } from "@/components/ui/icons";
-import { contact, emailHref, instagramHref, site, whatsappHref } from "@/data/site";
+import { brand, contact, emailHref, instagramHref, site, whatsappHref } from "@/data/site";
 
 type Channel = {
   label: string;
@@ -41,7 +41,7 @@ const channels: Channel[] = [
   {
     label: "Instagram",
     value: contact.instagram.handle,
-    helper: "Avances de obra, renders y proyectos publicados del estudio.",
+    helper: "Avances de obra, renders y proyectos publicados de Nodo.",
     href: instagramHref,
     icon: <InstagramIcon className="h-5 w-5" />,
     external: true,
@@ -54,11 +54,11 @@ export function ContactSection() {
       <div aria-hidden="true" className="blueprint-grid absolute inset-0 opacity-25" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
-          src="/brand/isotipo-claro.png"
+          src={brand.markOnDark}
           alt=""
-          width={712}
-          height={814}
-          className="absolute -bottom-40 -left-24 h-[34rem] w-auto opacity-[0.04]"
+          width={brand.markSize}
+          height={brand.markSize}
+          className="absolute -bottom-28 -left-20 h-[28rem] w-auto opacity-[0.06]"
         />
       </div>
 

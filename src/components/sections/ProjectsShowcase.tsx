@@ -36,7 +36,7 @@ export function ProjectsShowcase() {
       <Container width="wide">
         <SectionHeading
           overline="Proyectos"
-          title="Obras y desarrollos del estudio"
+          title="Obras y desarrollos de Nodo"
           description="Una selección de trabajos por línea de servicio. Cada ficha detalla el alcance, el sistema constructivo y la documentación producida."
         />
 

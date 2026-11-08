@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import {
   CloseIcon,
@@ -60,8 +59,13 @@ export function SiteHeader() {
           : "border-b border-transparent"
       }`}
     >
-      <Container width="wide">
-        <div className="flex h-18 items-center justify-between gap-6">
+      {/* Misma sangría que el texto del hero; alto = franja cine para centrar el logo */}
+      <div className="w-full px-10 sm:px-12 lg:px-16">
+        <div
+          className={`flex items-center justify-between gap-6 ${
+            solid ? "h-18" : "h-20 sm:h-[5.25rem] lg:h-22"
+          }`}
+        >
           <Logo tone={solid ? "dark" : "light"} />
 
           <nav aria-label="Navegación principal" className="hidden items-center gap-1 lg:flex">
@@ -127,14 +131,14 @@ export function SiteHeader() {
             </button>
           </div>
         </div>
-      </Container>
+      </div>
 
       <div
         id="menu-movil"
         hidden={!menuOpen}
         className="border-charcoal/10 bg-bone max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t lg:hidden"
       >
-        <Container width="wide">
+        <div className="w-full px-10 sm:px-12 lg:px-16">
           <nav aria-label="Navegación principal (móvil)" className="flex flex-col py-4">
             {navLinks.map((link) => (
               <Link
@@ -175,7 +179,7 @@ export function SiteHeader() {
               Instagram
             </a>
           </div>
-        </Container>
+        </div>
       </div>
     </header>
   );

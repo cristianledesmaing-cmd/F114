@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { InstagramIcon, MailIcon, PinIcon, WhatsappIcon } from "@/components/ui/icons";
 import { projects } from "@/data/projects";
 import {
+  brand,
   contact,
   emailHref,
   instagramHref,
@@ -21,31 +22,28 @@ export function SiteFooter() {
     <footer className="bg-ink relative overflow-hidden text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.045]">
         <Image
-          src="/brand/isotipo-claro.png"
+          src={brand.markOnDark}
           alt=""
-          width={712}
-          height={814}
-          className="absolute -right-20 -bottom-32 h-[26rem] w-auto"
+          width={brand.markSize}
+          height={brand.markSize}
+          className="absolute -right-16 -bottom-24 h-[22rem] w-auto"
         />
       </div>
 
       <Container width="wide" className="relative">
         <div className="grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-20">
           <div>
-            <div className="flex items-center gap-4">
+            <div>
               <Image
-                src="/brand/isotipo-claro.png"
-                alt=""
-                width={712}
-                height={814}
-                className="h-14 w-auto"
+                src={brand.lockupOnDark}
+                alt={site.fullName}
+                width={brand.lockupWidth}
+                height={brand.lockupHeight}
+                className="h-12 w-auto"
               />
-              <div>
-                <p className="font-display text-2xl leading-none font-bold text-white">
-                  {site.name}
-                </p>
-                <p className="text-overline text-sand/75 mt-2">{site.tagline}</p>
-              </div>
+              <p aria-hidden="true" className="text-overline text-sand/75 mt-4">
+                {site.tagline}
+              </p>
             </div>
             <p className="text-sand/80 mt-6 max-w-xs text-sm leading-relaxed">
               {site.description}
