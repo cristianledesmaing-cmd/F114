@@ -68,10 +68,30 @@
 
 @utility blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(45, 46, 51, 0.14) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(45, 46, 51, 0.14) 1px, transparent 1px);
+    linear-gradient(to right, rgba(45, 46, 51, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 46, 51, 0.16) 1px, transparent 1px);
   background-size: 64px 64px;
 }
+
+@keyframes work-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility work-marquee {
+  animation: work-marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-marquee {
+    animation: none;
+  }
+}
+
 
 @media (scripting: enabled) {
   [data-reveal=""] {

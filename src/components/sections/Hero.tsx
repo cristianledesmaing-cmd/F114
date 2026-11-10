@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { ArrowIcon, ArrowUpRightIcon, PinIcon } from "@/components/ui/icons";
 import { heroPillars } from "@/data/services";
 import { brand, site, whatsappHref } from "@/data/site";
@@ -9,16 +10,17 @@ import { brand, site, whatsappHref } from "@/data/site";
 export function Hero() {
   return (
     <section className="relative isolate h-svh overflow-hidden bg-transparent text-charcoal">
-      <div className="from-bone/55 via-sky/50 to-sky-mid/45 absolute inset-x-0 top-20 right-0 bottom-8 overflow-hidden bg-gradient-to-br sm:top-[5.25rem] sm:bottom-9 lg:top-22 lg:bottom-10">
+      <div className="absolute inset-x-0 top-20 right-0 bottom-0 overflow-hidden sm:top-[5.25rem] lg:top-22">
+        <HeroBackground />
+
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
-          {/* Sin disco: el fondo y el mallado continúan dentro del anillo; el trazo del logo los tapa. */}
           <Image
             src={brand.markOnLight}
             alt=""
             width={brand.markSize}
             height={brand.markSize}
             priority
-            className="absolute top-1/2 left-[70%] h-[24rem] w-auto -translate-x-1/2 -translate-y-1/2 opacity-[0.72] sm:h-[30rem] lg:left-[72%] lg:h-[38rem] lg:opacity-[0.8]"
+            className="absolute right-6 bottom-6 h-28 w-auto opacity-[0.85] sm:right-8 sm:bottom-8 sm:h-32 lg:right-10 lg:bottom-10 lg:h-40"
           />
         </div>
 

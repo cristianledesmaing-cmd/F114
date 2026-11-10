@@ -23,7 +23,7 @@ export function Team() {
               delay={index * 110}
               className="border-charcoal/15 flex flex-col items-center border-t pt-10 text-center"
             >
-              <div className="bg-sky-mid relative mb-7 aspect-square w-full max-w-[16rem] overflow-hidden">
+              <div className="bg-sky relative mb-7 aspect-square w-full max-w-[16rem] overflow-hidden rounded-full ring-1 ring-charcoal/25">
                 {member.photo ? (
                   <Image
                     src={member.photo}
