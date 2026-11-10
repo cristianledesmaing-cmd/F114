@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
 
   return (
     <article>
-      <header className="bg-ink relative isolate overflow-hidden text-white">
+      <header className="bg-sky relative isolate overflow-hidden text-charcoal">
         <div className="absolute inset-0">
           <Image
             src={project.cover}
@@ -63,24 +63,24 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-45"
+            className="object-cover opacity-35"
           />
         </div>
         <div
           aria-hidden="true"
-          className="from-ink via-ink/85 absolute inset-0 bg-gradient-to-t to-transparent"
+          className="from-bone via-bone/90 absolute inset-0 bg-gradient-to-t to-transparent"
         />
 
         <Container width="wide" className="relative">
           <div className="flex min-h-[70svh] flex-col justify-end pt-36 pb-16 lg:pt-44 lg:pb-20">
-            <nav aria-label="Migas de pan" className="text-sand/75 text-sm">
-              <Link href="/" className="hover:text-white">
+            <nav aria-label="Migas de pan" className="text-graphite text-sm">
+              <Link href="/" className="hover:text-brass-ink">
                 Inicio
               </Link>
               <span aria-hidden="true" className="px-2">
                 /
               </span>
-              <Link href="/#proyectos" className="hover:text-white">
+              <Link href="/proyectos" className="hover:text-brass-ink">
                 Proyectos
               </Link>
             </nav>
@@ -89,24 +89,24 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
               {project.serviceLines.map((line) => (
                 <li
                   key={line}
-                  className="text-sand rounded-full border border-white/25 px-3.5 py-1.5 text-xs font-semibold"
+                  className="border-charcoal/20 text-graphite rounded-md border bg-white/70 px-3.5 py-1.5 text-xs font-semibold"
                 >
                   {line}
                 </li>
               ))}
             </ul>
 
-            <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] font-bold text-justify sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] font-bold text-balance sm:text-5xl lg:text-6xl">
               {project.title}
             </h1>
-            <p className="text-sand/85 mt-6 max-w-2xl text-lg leading-relaxed text-justify">
+            <p className="text-graphite mt-6 max-w-2xl text-lg leading-relaxed text-pretty">
               {project.summary}
             </p>
           </div>
         </Container>
       </header>
 
-      <section className="bg-bone py-20 lg:py-28">
+      <section className="bg-bone/85 py-20 lg:py-28">
         <Container width="wide">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
@@ -143,7 +143,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                 </h2>
                 <div className="mt-7 space-y-6">
                   {project.description.map((paragraph, index) => (
-                    <p key={index} className="text-graphite text-lg leading-relaxed text-justify">
+                    <p key={index} className="text-graphite text-lg leading-relaxed text-pretty">
                       {paragraph}
                     </p>
                   ))}
@@ -156,7 +156,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                   {project.scope.map((item) => (
                     <li
                       key={item}
-                      className="text-charcoal bg-bone p-5 text-sm leading-relaxed shadow-[0_0_0_1px_rgba(58,54,51,0.1)]"
+                      className="text-charcoal bg-white/70 p-5 text-sm leading-relaxed shadow-[0_0_0_1px_rgba(45,46,51,0.1)]"
                     >
                       {item}
                     </li>
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
         </Container>
       </section>
 
-      <section id="galeria" className="bg-carbon scroll-mt-24 py-20 text-white lg:py-28">
+      <section id="galeria" className="bg-sky/80 scroll-mt-24 py-20 text-charcoal lg:py-28">
         <Container width="wide">
           <Reveal>
             <h2 className="text-overline text-brass-ink flex items-center gap-3">
@@ -189,7 +189,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
               >
                 <figure>
                   <div
-                    className={`bg-ink relative overflow-hidden ${
+                    className={`bg-sky-mid relative overflow-hidden ${
                       index === 0 ? "aspect-[16/9]" : "aspect-[4/3]"
                     }`}
                   >
@@ -205,14 +205,14 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                       className="object-cover"
                     />
                   </div>
-                  <figcaption className="text-sand/75 mt-3 text-sm">{image.caption}</figcaption>
+                  <figcaption className="text-graphite mt-3 text-sm">{image.caption}</figcaption>
                 </figure>
               </Reveal>
             ))}
           </div>
 
           {project.placeholder ? (
-            <p className="text-sand/75 mt-12 border-t border-white/10 pt-8 text-sm">
+            <p className="text-stone border-charcoal/10 mt-12 border-t pt-8 text-sm">
               Las imágenes de esta ficha son de relleno mientras se carga el material definitivo del
               proyecto.
             </p>
@@ -220,7 +220,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
         </Container>
       </section>
 
-      <section className="bg-bone py-16 lg:py-20">
+      <section className="bg-bone/85 py-16 lg:py-20">
         <Container width="wide">
           <nav
             aria-label="Navegación entre proyectos"
@@ -229,9 +229,9 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
             {previous ? (
               <Link
                 href={`/proyectos/${previous.slug}`}
-                className="group bg-bone hover:bg-charcoal p-7 shadow-[0_0_0_1px_rgba(58,54,51,0.1)] transition-colors duration-400 sm:p-8"
+                className="group bg-white/70 hover:bg-brass p-7 shadow-[0_0_0_1px_rgba(45,46,51,0.1)] transition-colors duration-400 sm:p-8"
               >
-                <span className="text-overline text-stone group-hover:text-sand flex items-center gap-2 transition-colors">
+                <span className="text-overline text-stone group-hover:text-white/80 flex items-center gap-2 transition-colors">
                   <ArrowIcon className="h-4 w-4 rotate-180" />
                   Proyecto anterior
                 </span>
@@ -246,9 +246,9 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
             {next ? (
               <Link
                 href={`/proyectos/${next.slug}`}
-                className="group bg-bone hover:bg-charcoal p-7 text-right shadow-[0_0_0_1px_rgba(58,54,51,0.1)] transition-colors duration-400 sm:p-8"
+                className="group bg-white/70 hover:bg-brass p-7 text-right shadow-[0_0_0_1px_rgba(45,46,51,0.1)] transition-colors duration-400 sm:p-8"
               >
-                <span className="text-overline text-stone group-hover:text-sand flex items-center justify-end gap-2 transition-colors">
+                <span className="text-overline text-stone group-hover:text-white/80 flex items-center justify-end gap-2 transition-colors">
                   Proyecto siguiente
                   <ArrowIcon className="h-4 w-4" />
                 </span>
@@ -270,14 +270,14 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="bg-charcoal hover:bg-ink inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-colors"
+                className="bg-brass hover:bg-brass-ink inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold text-white transition-colors"
               >
                 <WhatsappIcon className="h-4 w-4" />
                 Consultar por WhatsApp
               </a>
               <a
                 href={emailHref}
-                className="border-charcoal/25 text-charcoal hover:border-charcoal inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-colors"
+                className="border-charcoal/25 text-charcoal hover:border-charcoal inline-flex items-center gap-2 rounded-md border px-5 py-3 text-sm font-semibold transition-colors"
               >
                 <MailIcon className="h-4 w-4" />
                 Escribirnos

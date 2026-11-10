@@ -1,49 +1,73 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ArrowIcon, WhatsappIcon } from "@/components/ui/icons";
 import { services } from "@/data/services";
+import { buildWhatsappHref } from "@/data/site";
 
 export function Services() {
   return (
-    <section id="servicios" className="bg-carbon scroll-mt-24 py-24 text-white lg:py-32">
-      <Container width="wide">
-        <SectionHeading
-          tone="light"
-          overline="Servicios"
-          title="Tres etapas, un mismo interlocutor"
-          description="Podés contratarlas por separado o encarar el recorrido completo. En cualquiera de los casos, la información técnica que producimos en una etapa alimenta a la siguiente."
-        />
+    <section
+      id="servicios"
+      className="bg-sky/80 relative scroll-mt-24 overflow-hidden py-20 text-charcoal lg:py-28"
+    >
+      <Container width="wide" className="relative z-10">
+        <Reveal>
+          <p className="text-overline text-brass-ink flex items-center gap-3 text-[0.8rem]">
+            <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
+            Servicios
+          </p>
+          <h2 className="mt-4 max-w-3xl text-4xl leading-[1.08] font-bold text-balance sm:text-5xl lg:text-[3.25rem]">
+            ¿En qué etapa estás?
+          </h2>
+          <p className="text-graphite mt-5 max-w-3xl text-lg leading-relaxed text-pretty sm:text-xl">
+            Podés venir con una idea, con planos listos para construir o con una pregunta puntual.
+            Definimos el alcance según lo que necesites resolver.
+          </p>
+        </Reveal>
 
-        <div className="mt-16 grid gap-px lg:mt-20 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px lg:mt-16 lg:grid-cols-3">
           {services.map((service, index) => (
             <Reveal
               key={service.id}
               delay={index * 110}
-              className="group bg-carbon relative flex flex-col p-8 ring-1 ring-white/10 transition-colors duration-500 hover:bg-white/[0.03] lg:p-10"
+              className="group border-charcoal/10 relative flex flex-col bg-white/70 p-7 ring-1 ring-black/5 transition-colors duration-500 hover:bg-white sm:p-9 lg:p-11"
             >
-              <span
-                aria-hidden="true"
-                className="font-display text-brass/70 group-hover:text-brass text-5xl font-bold transition-colors duration-500 lg:text-6xl"
-              >
-                {service.number}
+              <span className="text-overline text-brass-ink text-[0.85rem]">
+                {service.number} /{" "}
+                {service.id === "proyecto"
+                  ? "PROYECTO"
+                  : service.id === "obra"
+                    ? "OBRA"
+                    : "CONSULTORÍA"}
               </span>
 
-              <h3 className="mt-8 text-2xl font-bold text-white lg:text-[1.75rem]">
-                {service.title}
-              </h3>
-              <p className="text-sand/75 mt-4 leading-relaxed text-justify">{service.summary}</p>
+              <h3 className="mt-6 text-[2rem] font-bold lg:text-[2.15rem]">{service.title}</h3>
+              <p className="text-graphite mt-4 text-xl leading-relaxed text-pretty">
+                {service.summary}
+              </p>
 
-              <ul className="mt-8 space-y-3 border-t border-white/10 pt-8">
+              <ul className="border-charcoal/10 mt-8 space-y-4 border-t pt-8">
                 {service.items.map((item) => (
-                  <li key={item} className="text-sand/90 flex gap-3 text-sm leading-relaxed">
+                  <li key={item} className="text-charcoal/90 flex gap-3 text-lg leading-relaxed">
                     <span
                       aria-hidden="true"
-                      className="bg-brass mt-2 h-1 w-3.5 shrink-0 rounded-full"
+                      className="bg-brass mt-2.5 h-1.5 w-4 shrink-0 rounded-full"
                     />
                     {item}
                   </li>
                 ))}
               </ul>
+
+              <a
+                href={buildWhatsappHref(service.whatsappMessage)}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-brass-ink hover:text-brass mt-auto inline-flex items-center gap-2.5 pt-8 text-lg font-semibold transition-colors"
+              >
+                <WhatsappIcon className="h-5 w-5" />
+                {service.cta}
+                <ArrowIcon className="h-4 w-4" />
+              </a>
             </Reveal>
           ))}
         </div>

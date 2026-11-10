@@ -32,12 +32,12 @@ export function ProjectsShowcase() {
   );
 
   return (
-    <section id="proyectos" className="bg-bone scroll-mt-24 py-24 lg:py-32">
+    <section id="proyectos" className="bg-bone/85 scroll-mt-24 pt-28 pb-24 lg:pt-32 lg:pb-32">
       <Container width="wide">
         <SectionHeading
           overline="Proyectos"
           title="Obras y desarrollos de Nodo"
-          description="Una selección de trabajos por línea de servicio. Cada ficha detalla el alcance, el sistema constructivo y la documentación producida."
+          description="Una selección de trabajos. Cada ficha detalla el alcance, el sistema constructivo y la documentación producida."
         />
 
         <Reveal
@@ -54,15 +54,15 @@ export function ProjectsShowcase() {
                   type="button"
                   onClick={() => setActive(filter)}
                   aria-pressed={isActive}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-charcoal text-white"
+                      ? "bg-brass text-white"
                       : "border-charcoal/15 text-graphite hover:border-charcoal/40 hover:text-charcoal border"
                   }`}
                 >
                   {filter}
                   <span
-                    className={`text-xs tabular-nums ${isActive ? "text-white/60" : "text-stone"}`}
+                    className={`text-xs tabular-nums ${isActive ? "text-white/80" : "text-stone"}`}
                   >
                     {counts[filter]}
                   </span>

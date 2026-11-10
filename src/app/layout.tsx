@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
 import localFont from "next/font/local";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -20,6 +21,14 @@ const futura = localFont({
   fallback: ["Century Gothic", "Trebuchet MS", "system-ui", "sans-serif"],
 });
 
+/** Geométrica cercana a Futura, pero con j de gancho legible en el hero. */
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -30,14 +39,11 @@ export const metadata: Metadata = {
   applicationName: site.fullName,
   keywords: [
     "ingeniería y arquitectura",
-    "estudio de ingeniería",
+    "proyecto",
+    "dirección de obra",
+    "consultoría técnica",
     "cálculo estructural",
-    "anteproyecto",
-    "proyecto ejecutivo",
-    "renders 3D",
-    "cómputo y presupuesto",
-    "hormigón armado",
-    "steel framing",
+    "Resistencia Chaco",
     site.location.label,
   ],
   authors: [{ name: site.fullName }],
@@ -63,20 +69,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-AR" className={`${futura.variable} h-full antialiased`}>
-      <body className="bg-bone text-charcoal flex min-h-full flex-col">
+    <html lang="es-AR" className={`${futura.variable} ${outfit.variable} h-full antialiased`}>
+      <body className="bg-bone text-charcoal relative flex min-h-full flex-col">
+        <div aria-hidden="true" className="blueprint-grid pointer-events-none fixed inset-0 z-0 opacity-40" />
         <a
           href="#contenido"
-          className="focus:bg-carbon sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-sm focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+          className="focus:bg-brass sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-sm focus:px-4 focus:py-2 focus:text-sm focus:text-white"
         >
           Saltar al contenido
         </a>
         <RevealProvider />
-        <SiteHeader />
-        <main id="contenido" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          <SiteHeader />
+          <main id="contenido" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

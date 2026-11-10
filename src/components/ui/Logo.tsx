@@ -27,7 +27,7 @@ export function Logo({ tone = "dark", className = "", compact = false }: LogoPro
         priority
         unoptimized
         className={`w-auto transition-transform duration-500 group-hover:-translate-y-0.5 ${
-          compact ? "h-10" : "h-11"
+          compact ? "h-11" : "h-12"
         }`}
       />
       {compact ? null : (

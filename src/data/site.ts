@@ -9,9 +9,10 @@ export const site = {
   name: "Nodo",
   fullName: "Nodo Ingeniería & Arquitectura",
   tagline: "Ingeniería & Arquitectura",
-  claim: "Anteproyecto, cálculo estructural y proyecto",
+  slogan: "Ingeniería y arquitectura, unidas en un mismo nodo.",
+  claim: "Proyecto, dirección de obra y consultoría técnica",
   description:
-    "Ingeniería y arquitectura en un mismo equipo. Desarrollamos anteproyectos, cálculo estructural y documentación de proyecto para obras de vivienda, comercio e industria.",
+    "Hacemos proyectos, dirigimos obras y brindamos consultoría técnica. Integramos ingeniería y arquitectura para que las decisiones de diseño tengan en cuenta cómo se va a construir.",
   // PROVISORIO: reemplazar por el dominio definitivo antes de publicar.
   url: "https://www.nodoingenieria.com.ar",
   locale: "es_AR",
@@ -60,9 +61,11 @@ export const emailHref = `mailto:${contact.email.address}?subject=${encodeURICom
   contact.email.subject,
 )}`;
 
-export const whatsappHref = `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(
-  contact.whatsapp.message,
-)}`;
+export function buildWhatsappHref(message: string = contact.whatsapp.message) {
+  return `https://wa.me/${contact.whatsapp.number}?text=${encodeURIComponent(message)}`;
+}
+
+export const whatsappHref = buildWhatsappHref();
 
 export const instagramHref = contact.instagram.url;
 
@@ -72,10 +75,13 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Nodo", href: "/#nodo" },
   { label: "Servicios", href: "/#servicios" },
-  { label: "Proyectos", href: "/#proyectos" },
-  { label: "Sistemas", href: "/#sistemas" },
+  { label: "Cómo trabajamos", href: "/#como-trabajamos" },
+  { label: "Proyectos", href: "/proyectos" },
   { label: "Equipo", href: "/#equipo" },
-  { label: "Contacto", href: "/#contacto" },
 ];
+
+export const contactNavLink: NavLink = {
+  label: "Contactanos",
+  href: "/#contacto",
+};

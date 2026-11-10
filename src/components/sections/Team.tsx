@@ -7,59 +7,43 @@ import { team } from "@/data/services";
 
 export function Team() {
   return (
-    <section id="equipo" className="bg-carbon scroll-mt-24 py-24 text-white lg:py-32">
+    <section id="equipo" className="bg-sky/80 relative scroll-mt-24 py-20 text-charcoal lg:py-28">
       <Container width="wide">
         <SectionHeading
-          tone="light"
           align="center"
-          overline="Equipo"
-          title="Tres disciplinas complementarias"
-          description="Obra, dirección de proyectos y cálculo estructural conviven en Nodo. Cubrimos la ejecución y la ingeniería sin depender de terceros, y respondemos con una sola voz técnica."
+          overline="El equipo"
+          title="Somos Nodo."
+          description="Somos un equipo de tres. En Nodo combinamos ingeniería y diseño arquitectónico para pensar, desde el primer plano, cómo se va a construir cada proyecto."
         />
 
-        <div className="mt-16 grid gap-12 lg:mt-20 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-3 lg:gap-10">
           {team.map((member, index) => (
             <Reveal
-              key={member.title}
+              key={member.name}
               delay={index * 110}
-              className="flex flex-col items-center border-t border-white/15 pt-8 text-center"
+              className="border-charcoal/15 flex flex-col items-center border-t pt-10 text-center"
             >
-              <div className="bg-ink/40 relative mb-6 aspect-square w-full max-w-[14rem] overflow-hidden">
+              <div className="bg-sky-mid relative mb-7 aspect-square w-full max-w-[16rem] overflow-hidden">
                 {member.photo ? (
                   <Image
                     src={member.photo}
-                    alt={member.role}
+                    alt={member.name}
                     fill
-                    sizes="224px"
+                    sizes="256px"
                     className="object-cover object-top"
                   />
                 ) : (
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 flex items-center justify-center border border-dashed border-white/15"
+                    className="border-charcoal/15 absolute inset-0 flex items-center justify-center border border-dashed"
                   >
-                    <span className="text-overline text-sand/40">Foto pendiente</span>
+                    <span className="text-overline text-stone">Foto pendiente</span>
                   </div>
                 )}
               </div>
 
-              <p className="text-overline text-brass">{member.role}</p>
-              <h3 className="mt-4 text-2xl font-bold text-white">{member.title}</h3>
-              <p className="text-sand/75 mt-4 max-w-sm leading-relaxed text-pretty">
-                {member.description}
-              </p>
-
-              <ul className="mt-7 flex w-full max-w-sm flex-col items-center gap-2.5">
-                {member.focus.map((item) => (
-                  <li
-                    key={item}
-                    className="text-sand/90 flex items-center justify-center gap-3 text-sm"
-                  >
-                    <span aria-hidden="true" className="bg-brass/70 h-px w-5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="text-3xl font-bold sm:text-[2rem]">{member.name}</h3>
+              <p className="text-graphite mt-3 text-base leading-relaxed sm:text-lg">{member.role}</p>
             </Reveal>
           ))}
         </div>

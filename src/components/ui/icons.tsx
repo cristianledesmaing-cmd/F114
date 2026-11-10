@@ -73,16 +73,31 @@ export function ArrowIcon(props: IconProps) {
   );
 }
 
+/** Flecha noreste del PDF (CTA WhatsApp). */
+export function ArrowUpRightIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M7 17 17 7m0 0H9m8 0v8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function PinIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
       <path
-        d="M12 21c4-4.2 6-7.4 6-10a6 6 0 1 0-12 0c0 2.6 2 5.8 6 10Z"
+        d="M12 21s6-5.4 6-10a6 6 0 1 0-12 0c0 4.6 6 10 6 10Z"
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.7"
         strokeLinejoin="round"
       />
-      <circle cx="12" cy="11" r="2.25" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="12" cy="11" r="2.1" stroke="currentColor" strokeWidth="1.7" />
     </svg>
   );
 }

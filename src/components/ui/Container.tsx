@@ -6,10 +6,11 @@ type ContainerProps = {
   width?: "default" | "wide" | "narrow";
 };
 
+/** Misma sangría horizontal que header y hero: px-10 / sm:px-12 / lg:px-16 */
 const widths = {
   narrow: "max-w-3xl",
   default: "max-w-6xl",
-  wide: "max-w-[88rem]",
+  wide: "max-w-none",
 } as const;
 
 export function Container({ children, className = "", width = "default" }: ContainerProps) {

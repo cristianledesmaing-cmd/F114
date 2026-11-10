@@ -23,13 +23,13 @@ export function SectionHeading({
 
   return (
     <Reveal
-      className={`flex flex-col gap-6 ${
+      className={`flex flex-col gap-5 ${
         align === "center" ? "items-center text-center" : "md:flex-row md:items-end md:justify-between"
       }`}
     >
-      <div className={align === "center" ? "max-w-2xl" : "max-w-2xl"}>
+      <div className="max-w-3xl">
         <p
-          className={`text-overline flex items-center gap-3 ${
+          className={`text-overline flex items-center gap-3 text-[0.8rem] ${
             isLight ? "text-brass" : "text-brass-ink"
           } ${align === "center" ? "justify-center" : ""}`}
         >
@@ -37,7 +37,7 @@ export function SectionHeading({
           {overline}
         </p>
         <h2
-          className={`mt-4 text-3xl leading-[1.1] font-bold text-balance sm:text-4xl lg:text-[2.75rem] ${
+          className={`mt-4 text-4xl leading-[1.08] font-bold text-balance sm:text-5xl lg:text-[3.25rem] ${
             isLight ? "text-white" : "text-charcoal"
           }`}
         >
@@ -45,9 +45,9 @@ export function SectionHeading({
         </h2>
         {description ? (
           <p
-            className={`mt-5 text-base leading-relaxed sm:text-lg ${
-              align === "center" ? "text-pretty" : "text-justify"
-            } ${isLight ? "text-sand/80" : "text-graphite"}`}
+            className={`mt-5 text-lg leading-relaxed sm:text-xl ${
+              isLight ? "text-sand/85" : "text-graphite"
+            } text-pretty`}
           >
             {description}
           </p>

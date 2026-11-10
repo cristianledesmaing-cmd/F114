@@ -3,12 +3,12 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
 import { InstagramIcon, MailIcon, PinIcon, WhatsappIcon } from "@/components/ui/icons";
-import { projects } from "@/data/projects";
 import {
   brand,
   contact,
   emailHref,
   instagramHref,
+  contactNavLink,
   navLinks,
   site,
   whatsappHref,
@@ -16,13 +16,12 @@ import {
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
-  const highlighted = projects.slice(0, 4);
 
   return (
-    <footer className="bg-ink relative overflow-hidden text-white">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.045]">
+    <footer className="bg-sky/90 relative overflow-hidden text-charcoal">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <Image
-          src={brand.markOnDark}
+          src={brand.markOnLight}
           alt=""
           width={brand.markSize}
           height={brand.markSize}
@@ -31,37 +30,37 @@ export function SiteFooter() {
       </div>
 
       <Container width="wide" className="relative">
-        <div className="grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:py-20">
+        <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1.2fr] lg:py-20">
           <div>
             <div>
               <Image
-                src={brand.lockupOnDark}
+                src={brand.lockupOnLight}
                 alt={site.fullName}
                 width={brand.lockupWidth}
                 height={brand.lockupHeight}
-                className="h-12 w-auto"
+                className="h-11 w-auto"
               />
-              <p aria-hidden="true" className="text-overline text-sand/75 mt-4">
+              <p aria-hidden="true" className="text-overline text-graphite mt-4">
                 {site.tagline}
               </p>
             </div>
-            <p className="text-sand/80 mt-6 max-w-xs text-sm leading-relaxed">
+            <p className="text-graphite mt-6 max-w-xs text-sm leading-relaxed">
               {site.description}
             </p>
-            <p className="text-sand/75 mt-6 flex items-center gap-2 text-sm">
+            <p className="text-graphite mt-6 flex items-center gap-2 text-sm">
               <PinIcon className="h-4 w-4 shrink-0" />
               {site.location.label}
             </p>
           </div>
 
           <nav aria-label="Secciones del sitio">
-            <h2 className="text-overline text-sand/75">Secciones</h2>
+            <h2 className="text-overline text-brass-ink">Secciones</h2>
             <ul className="mt-5 space-y-3">
-              {navLinks.map((link) => (
+              {[...navLinks, contactNavLink].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sand/85 hover:text-brass text-sm transition-colors"
+                    className="text-graphite hover:text-brass-ink text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -70,29 +69,13 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          <nav aria-label="Proyectos destacados">
-            <h2 className="text-overline text-sand/75">Proyectos</h2>
-            <ul className="mt-5 space-y-3">
-              {highlighted.map((project) => (
-                <li key={project.slug}>
-                  <Link
-                    href={`/proyectos/${project.slug}`}
-                    className="text-sand/85 hover:text-brass text-sm transition-colors"
-                  >
-                    {project.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
           <div>
-            <h2 className="text-overline text-sand/75">Contacto</h2>
+            <h2 className="text-overline text-brass-ink">Contacto</h2>
             <ul className="mt-5 space-y-4">
               <li>
                 <a
                   href={emailHref}
-                  className="group text-sand/85 hover:text-brass flex items-start gap-3 text-sm transition-colors"
+                  className="group text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <MailIcon className="mt-0.5 h-4 w-4 shrink-0" />
                   <span className="break-all">{contact.email.address}</span>
@@ -103,7 +86,7 @@ export function SiteFooter() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-sand/85 hover:text-brass flex items-start gap-3 text-sm transition-colors"
+                  className="text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <WhatsappIcon className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>{contact.whatsapp.display}</span>
@@ -114,7 +97,7 @@ export function SiteFooter() {
                   href={instagramHref}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="text-sand/85 hover:text-brass flex items-start gap-3 text-sm transition-colors"
+                  className="text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>{contact.instagram.handle}</span>
@@ -124,13 +107,13 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-sand/15 flex flex-col gap-3 border-t py-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sand/75 text-xs">
+        <div className="border-charcoal/10 flex flex-col gap-3 border-t py-7 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-stone text-xs">
             © {year} {site.fullName}. Todos los derechos reservados.
           </p>
-          <p className="text-sand/75 text-xs">
-            {site.claim} · {site.location.label}
-          </p>
+          <Link href="/#" className="text-stone hover:text-brass-ink text-xs transition-colors">
+            Volver arriba
+          </Link>
         </div>
       </Container>
     </footer>
