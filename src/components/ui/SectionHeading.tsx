@@ -29,7 +29,7 @@ export function SectionHeading({
     >
       <div className="max-w-3xl">
         <p
-          className={`text-overline flex items-center gap-3 text-[0.8rem] ${
+          className={`text-overline flex items-center gap-3 text-[1.05rem] ${
             isLight ? "text-brass" : "text-brass-ink"
           } ${align === "center" ? "justify-center" : ""}`}
         >

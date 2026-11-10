@@ -8,11 +8,11 @@ export function Services() {
   return (
     <section
       id="servicios"
-      className="bg-sky/80 relative scroll-mt-24 overflow-hidden py-20 text-charcoal lg:py-28"
+      className="bg-sky/50 relative scroll-mt-24 overflow-hidden py-20 text-charcoal lg:py-28"
     >
       <Container width="wide" className="relative z-10">
         <Reveal>
-          <p className="text-overline text-brass-ink flex items-center gap-3 text-[0.8rem]">
+          <p className="text-overline text-brass-ink flex items-center gap-3 text-[1.05rem]">
             <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
             Servicios
           </p>
@@ -32,8 +32,7 @@ export function Services() {
               delay={index * 110}
               className="group border-charcoal/10 relative flex flex-col bg-white/70 p-7 ring-1 ring-black/5 transition-colors duration-500 hover:bg-white sm:p-9 lg:p-11"
             >
-              <span className="text-overline text-brass-ink text-[0.85rem]">
-                {service.number} /{" "}
+              <span className="text-overline text-brass-ink text-[1rem]">
                 {service.id === "proyecto"
                   ? "PROYECTO"
                   : service.id === "obra"

@@ -32,7 +32,7 @@ export function ProjectsShowcase() {
   );
 
   return (
-    <section id="proyectos" className="bg-bone/85 scroll-mt-24 pt-28 pb-24 lg:pt-32 lg:pb-32">
+    <section id="proyectos" className="bg-bone/45 scroll-mt-24 pt-28 pb-24 lg:pt-32 lg:pb-32">
       <Container width="wide">
         <SectionHeading
           overline="Proyectos"

@@ -7,7 +7,7 @@ import { team } from "@/data/services";
 
 export function Team() {
   return (
-    <section id="equipo" className="bg-sky/80 relative scroll-mt-24 py-20 text-charcoal lg:py-28">
+    <section id="equipo" className="bg-sky/50 relative scroll-mt-24 py-20 text-charcoal lg:py-28">
       <Container width="wide">
         <SectionHeading
           align="center"

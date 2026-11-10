@@ -71,7 +71,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={`${futura.variable} ${outfit.variable} h-full antialiased`}>
       <body className="bg-bone text-charcoal relative flex min-h-full flex-col">
-        <div aria-hidden="true" className="blueprint-grid pointer-events-none fixed inset-0 z-0 opacity-40" />
+        <div
+          aria-hidden="true"
+          className="blueprint-grid pointer-events-none fixed inset-0 z-0 opacity-65"
+        />
         <a
           href="#contenido"
           className="focus:bg-brass sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-sm focus:px-4 focus:py-2 focus:text-sm focus:text-white"

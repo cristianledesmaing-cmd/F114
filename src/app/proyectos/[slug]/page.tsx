@@ -106,7 +106,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
         </Container>
       </header>
 
-      <section className="bg-bone/85 py-20 lg:py-28">
+      <section className="bg-bone/45 py-20 lg:py-28">
         <Container width="wide">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
         </Container>
       </section>
 
-      <section id="galeria" className="bg-sky/80 scroll-mt-24 py-20 text-charcoal lg:py-28">
+      <section id="galeria" className="bg-sky/50 scroll-mt-24 py-20 text-charcoal lg:py-28">
         <Container width="wide">
           <Reveal>
             <h2 className="text-overline text-brass-ink flex items-center gap-3">
@@ -220,7 +220,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
         </Container>
       </section>
 
-      <section className="bg-bone/85 py-16 lg:py-20">
+      <section className="bg-bone/45 py-16 lg:py-20">
         <Container width="wide">
           <nav
             aria-label="Navegación entre proyectos"

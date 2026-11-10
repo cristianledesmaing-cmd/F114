@@ -51,7 +51,7 @@ export function ContactSection() {
   return (
     <section
       id="contacto"
-      className="bg-sky-mid/80 relative scroll-mt-24 overflow-hidden py-20 text-charcoal lg:py-28"
+      className="bg-sky-mid/50 relative scroll-mt-24 overflow-hidden py-20 text-charcoal lg:py-28"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
@@ -59,14 +59,14 @@ export function ContactSection() {
           alt=""
           width={brand.markSize}
           height={brand.markSize}
-          className="absolute -bottom-20 -left-16 h-[20rem] w-auto opacity-[0.08]"
+          className="absolute -bottom-20 -left-16 h-[20rem] w-auto opacity-[0.28]"
         />
       </div>
 
       <Container width="wide" className="relative">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <Reveal>
-            <p className="text-overline text-brass-ink flex items-center gap-3 text-[0.8rem]">
+            <p className="text-overline text-brass-ink flex items-center gap-3 text-[1.05rem]">
               <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
               Contacto
             </p>

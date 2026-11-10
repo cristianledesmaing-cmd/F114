@@ -18,14 +18,14 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-sky/90 relative overflow-hidden text-charcoal">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.08]">
+    <footer className="bg-sky/55 relative overflow-hidden text-charcoal">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <Image
           src={brand.markOnLight}
           alt=""
           width={brand.markSize}
           height={brand.markSize}
-          className="absolute -right-16 -bottom-24 h-[22rem] w-auto"
+          className="absolute -right-16 -bottom-24 h-[22rem] w-auto opacity-[0.28]"
         />
       </div>
 

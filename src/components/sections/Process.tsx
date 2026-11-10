@@ -4,10 +4,10 @@ import { processSteps } from "@/data/services";
 
 export function Process() {
   return (
-    <section id="como-trabajamos" className="bg-bone/85 scroll-mt-24 py-20 lg:py-28">
+    <section id="como-trabajamos" className="bg-bone/45 scroll-mt-24 py-20 lg:py-28">
       <Container width="wide">
         <Reveal>
-          <p className="text-overline text-brass-ink flex items-center gap-3 text-[0.8rem]">
+          <p className="text-overline text-brass-ink flex items-center gap-3 text-[1.05rem]">
             <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
             Cómo trabajamos
           </p>
@@ -25,7 +25,7 @@ export function Process() {
               delay={index * 100}
               className="border-charcoal/10 relative border-t p-7 sm:p-9 lg:border-t-0 lg:border-l lg:p-11 lg:first:border-l-0"
             >
-              <span className="text-overline text-brass-ink text-[0.85rem]">
+              <span className="text-overline text-brass-ink text-[1rem]">
                 {step.number}
               </span>
               <h3 className="text-charcoal mt-6 text-[2rem] font-bold lg:text-[2.15rem]">

@@ -103,7 +103,7 @@ export const team: TeamMember[] = [
 ];
 
 export const heroPillars = [
-  { number: "01", label: "Proyecto" },
-  { number: "02", label: "Dirección de obra" },
-  { number: "03", label: "Consultoría técnica" },
+  { number: "01", label: "Dirección de obra" },
+  { number: "02", label: "Consultoría técnica" },
+  { number: "03", label: "Proyecto" },
 ] as const;
