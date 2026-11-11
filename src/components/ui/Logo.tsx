@@ -1,22 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { brand, site } from "@/data/site";
+import { brand } from "@/data/site";
 
 type LogoProps = {
+  fullName: string;
+  tagline: string;
   /** `light` dibuja el logo blanco + naranja, para fondos oscuros. */
   tone?: "dark" | "light";
   className?: string;
   compact?: boolean;
 };
 
-export function Logo({ tone = "dark", className = "", compact = false }: LogoProps) {
+export function Logo({
+  fullName,
+  tagline,
+  tone = "dark",
+  className = "",
+  compact = false,
+}: LogoProps) {
   const onDark = tone === "light";
 
   return (
     <Link
       href="/"
-      aria-label={`${site.fullName} — ir al inicio`}
+      aria-label={`${fullName} — ir al inicio`}
       className={`group inline-flex items-center gap-4 ${className}`}
     >
       <Image
@@ -39,7 +47,7 @@ export function Logo({ tone = "dark", className = "", compact = false }: LogoPro
           <span
             className={`text-overline leading-none ${onDark ? "text-white/70" : "text-graphite"}`}
           >
-            {site.tagline}
+            {tagline}
           </span>
         </span>
       )}

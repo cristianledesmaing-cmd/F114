@@ -1,0 +1,33 @@
+{
+  "name": "Nodo",
+  "fullName": "Nodo Ingeniería & Arquitectura",
+  "tagline": "Ingeniería & Arquitectura",
+  "slogan": "Ingeniería y arquitectura, unidas en un mismo nodo.",
+  "claim": "Proyecto, dirección de obra y consultoría técnica",
+  "description": "Hacemos proyectos, dirigimos obras y brindamos consultoría técnica. Integramos ingeniería y arquitectura para que las decisiones de diseño tengan en cuenta cómo se va a construir.",
+  "url": "https://www.nodoingenieria.com.ar",
+  "locale": "es_AR",
+  "foundedYear": 2021,
+  "location": {
+    "city": "Resistencia",
+    "region": "Provincia del Chaco",
+    "country": "Argentina",
+    "label": "Resistencia, Chaco, Argentina"
+  },
+  "contact": {
+    "email": {
+      "address": "contacto@nodoingenieria.com.ar",
+      "subject": "Consulta desde el sitio web"
+    },
+    "whatsapp": {
+      "number": "5493624888895",
+      "display": "+54 9 362 488-8895",
+      "message": "Hola, quisiera consultar por un proyecto con Nodo."
+    },
+    "instagram": {
+      "handle": "@nodo.ingenieria",
+      "url": "https://www.instagram.com/"
+    },
+    "schedule": "Lunes a viernes, 9 a 18 h"
+  }
+}

@@ -6,30 +6,41 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { projects, serviceLines, type ServiceLine } from "@/data/projects";
+import type { Project, ServiceLine } from "@/lib/content-types";
 
 type Filter = ServiceLine | "Todos";
 
-const filters: Filter[] = ["Todos", ...serviceLines];
-
-export function ProjectsShowcase() {
+export function ProjectsShowcase({
+  projects,
+  serviceLines,
+}: {
+  projects: Project[];
+  serviceLines: ServiceLine[];
+}) {
   const [active, setActive] = useState<Filter>("Todos");
 
+  // Solo ofrecemos filtros que tengan al menos un proyecto publicado.
+  const filters = useMemo(() => {
+    const used = serviceLines.filter((line) =>
+      projects.some((project) => project.serviceLines.includes(line)),
+    );
+    return ["Todos", ...used] as Filter[];
+  }, [projects, serviceLines]);
+
   const counts = useMemo(() => {
-    const result: Record<Filter, number> = { Todos: projects.length } as Record<Filter, number>;
+    const result: Record<string, number> = { Todos: projects.length };
     for (const line of serviceLines) {
       result[line] = projects.filter((project) => project.serviceLines.includes(line)).length;
     }
     return result;
-  }, []);
+  }, [projects, serviceLines]);
 
-  const visible = useMemo(
-    () =>
-      active === "Todos"
-        ? projects
-        : projects.filter((project) => project.serviceLines.includes(active)),
-    [active],
-  );
+  const visible =
+    active === "Todos"
+      ? projects
+      : projects.filter((project) => project.serviceLines.includes(active));
+
+  const hasPlaceholders = projects.some((project) => project.placeholder);
 
   return (
     <section id="proyectos" className="bg-bone/45 scroll-mt-24 pt-28 pb-24 lg:pt-32 lg:pb-32">
@@ -84,10 +95,11 @@ export function ProjectsShowcase() {
           </p>
         )}
 
-        <p className="text-stone border-charcoal/10 mt-16 border-t pt-8 text-sm">
-          Las imágenes de esta sección son de relleno mientras se carga el material definitivo de
-          cada obra.
-        </p>
+        {hasPlaceholders ? (
+          <p className="text-stone border-charcoal/10 mt-16 border-t pt-8 text-sm">
+            Algunas imágenes son de relleno mientras se carga el material definitivo de cada obra.
+          </p>
+        ) : null}
       </Container>
     </section>
   );

@@ -6,36 +6,45 @@ import { useMemo, useState, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsappIcon } from "@/components/ui/icons";
-import { services } from "@/data/services";
-import { brand, buildWhatsappHref, contact, site } from "@/data/site";
+import { brand } from "@/data/site";
+import { buildWhatsappHref, type HomeContent, type SiteContent } from "@/lib/content-types";
 
-const inquiryOptions = [
-  ...services.map((service) => ({
-    id: service.id,
-    label: service.title,
-    message: `Hola, quisiera consultar por ${service.title.toLowerCase()} con Nodo.`,
-  })),
-  {
-    id: "asesoramiento",
-    label: "Asesoramiento",
-    message: "Hola, quisiera un asesoramiento con Nodo.",
-  },
-];
+export function ContactSection({
+  section,
+  services,
+  site,
+}: {
+  section: HomeContent["contactSection"];
+  services: HomeContent["services"];
+  site: SiteContent;
+}) {
+  const inquiryOptions = useMemo(
+    () => [
+      ...services.map((service) => ({
+        id: service.id,
+        label: service.title,
+        message: service.whatsappMessage,
+      })),
+      {
+        id: "asesoramiento",
+        label: section.advisoryLabel,
+        message: section.advisoryMessage,
+      },
+    ],
+    [services, section.advisoryLabel, section.advisoryMessage],
+  );
 
-export function ContactSection() {
   const [serviceId, setServiceId] = useState(inquiryOptions[0]?.id ?? "");
   const [location, setLocation] = useState("");
   const [details, setDetails] = useState("");
 
-  const selectedOption = useMemo(
-    () => inquiryOptions.find((option) => option.id === serviceId) ?? inquiryOptions[0],
-    [serviceId],
-  );
+  const selectedOption =
+    inquiryOptions.find((option) => option.id === serviceId) ?? inquiryOptions[0];
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const lines = [selectedOption?.message ?? "Hola, quisiera consultar con Nodo."];
+    const lines = [selectedOption?.message ?? site.contact.whatsapp.message];
 
     if (location.trim()) {
       lines.push(`Localidad o barrio: ${location.trim()}`);
@@ -45,7 +54,11 @@ export function ContactSection() {
       lines.push(details.trim());
     }
 
-    window.open(buildWhatsappHref(lines.join("\n\n")), "_blank", "noopener,noreferrer");
+    window.open(
+      buildWhatsappHref(site.contact.whatsapp.number, lines.join("\n\n")),
+      "_blank",
+      "noopener,noreferrer",
+    );
   }
 
   return (
@@ -68,14 +81,13 @@ export function ContactSection() {
           <Reveal>
             <p className="text-overline text-brass-ink flex items-center gap-3 text-[1.05rem]">
               <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
-              Contacto
+              {section.overline}
             </p>
             <h2 className="mt-4 text-4xl leading-[1.08] font-bold text-balance sm:text-5xl lg:text-[3.25rem]">
-              Contanos qué querés hacer.
+              {section.title}
             </h2>
             <p className="text-graphite mt-5 text-lg leading-relaxed text-pretty sm:text-xl">
-              Con la ubicación, el tipo de obra y la etapa en la que estás podemos orientar la
-              primera charla.
+              {section.description}
             </p>
 
             <dl className="mt-8 space-y-3.5">
@@ -83,10 +95,10 @@ export function ContactSection() {
                 <dt className="sr-only">Correo</dt>
                 <dd>
                   <a
-                    href={`mailto:${contact.email.address}`}
+                    href={`mailto:${site.contact.email.address}`}
                     className="text-graphite hover:text-brass-ink text-base transition-colors sm:text-lg"
                   >
-                    {contact.email.address}
+                    {site.contact.email.address}
                   </a>
                 </dd>
               </div>
@@ -94,12 +106,15 @@ export function ContactSection() {
                 <dt className="sr-only">WhatsApp</dt>
                 <dd>
                   <a
-                    href={buildWhatsappHref()}
+                    href={buildWhatsappHref(
+                      site.contact.whatsapp.number,
+                      site.contact.whatsapp.message,
+                    )}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="text-graphite hover:text-brass-ink text-base transition-colors sm:text-lg"
                   >
-                    {contact.whatsapp.display}
+                    {site.contact.whatsapp.display}
                   </a>
                 </dd>
               </div>

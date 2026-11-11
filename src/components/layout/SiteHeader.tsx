@@ -8,7 +8,7 @@ import { Logo } from "@/components/ui/Logo";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { contactNavLink, navLinks } from "@/data/site";
 
-export function SiteHeader() {
+export function SiteHeader({ fullName, tagline }: { fullName: string; tagline: string }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,7 +58,7 @@ export function SiteHeader() {
             solid ? "h-18" : "h-20 sm:h-[5.25rem] lg:h-22"
           }`}
         >
-          <Logo tone="dark" />
+          <Logo tone="dark" fullName={fullName} tagline={tagline} />
 
           <nav aria-label="Navegación principal" className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (

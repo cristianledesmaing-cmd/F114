@@ -3,21 +3,27 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { team } from "@/data/services";
+import type { HomeContent } from "@/lib/content-types";
 
-export function Team() {
+export function Team({
+  section,
+  members,
+}: {
+  section: HomeContent["teamSection"];
+  members: HomeContent["team"];
+}) {
   return (
     <section id="equipo" className="bg-sky/50 relative scroll-mt-24 py-20 text-charcoal lg:py-28">
       <Container width="wide">
         <SectionHeading
           align="center"
-          overline="El equipo"
-          title="Somos Nodo."
-          description="Somos un equipo de tres. En Nodo combinamos ingeniería y diseño arquitectónico para pensar, desde el primer plano, cómo se va a construir cada proyecto."
+          overline={section.overline}
+          title={section.title}
+          description={section.description}
         />
 
         <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-3 lg:gap-10">
-          {team.map((member, index) => (
+          {members.map((member, index) => (
             <Reveal
               key={member.name}
               delay={index * 110}

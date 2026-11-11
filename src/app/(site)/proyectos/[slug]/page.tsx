@@ -6,22 +6,22 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowIcon, MailIcon, WhatsappIcon } from "@/components/ui/icons";
-import { getProject, getProjectNeighbours, projects } from "@/data/projects";
-import { emailHref, site, whatsappHref } from "@/data/site";
+import { getProjectNeighbours, getPublishedProject, getSiteContent } from "@/lib/content";
+import { buildEmailHref, buildWhatsappHref } from "@/lib/content-types";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/proyectos/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getPublishedProject(slug);
 
   if (!project) {
     return { title: "Proyecto no encontrado" };
   }
+
+  const site = await getSiteContent();
 
   return {
     title: project.title,
@@ -38,11 +38,20 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: PageProps<"/proyectos/[slug]">) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getPublishedProject(slug);
 
   if (!project) notFound();
 
-  const { previous, next } = getProjectNeighbours(project.slug);
+  const [{ previous, next }, site] = await Promise.all([
+    getProjectNeighbours(project.slug),
+    getSiteContent(),
+  ]);
+
+  const whatsappHref = buildWhatsappHref(
+    site.contact.whatsapp.number,
+    site.contact.whatsapp.message,
+  );
+  const emailHref = buildEmailHref(site.contact.email.address, site.contact.email.subject);
 
   const facts = [
     { label: "Tipología", value: project.typology },
@@ -51,7 +60,7 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
     { label: "Superficie", value: project.area },
     { label: "Estado", value: project.status },
     { label: "Comitente", value: project.client },
-  ];
+  ].filter((fact) => fact.value);
 
   return (
     <article>
@@ -125,15 +134,19 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                 ))}
               </dl>
 
-              <h3 className="text-overline text-brass-ink mt-12">Sistemas constructivos</h3>
-              <ul className="mt-5 space-y-2.5">
-                {project.systems.map((system) => (
-                  <li key={system} className="text-graphite flex gap-3 text-sm leading-relaxed">
-                    <span aria-hidden="true" className="bg-brass mt-2 h-1 w-3.5 shrink-0" />
-                    {system}
-                  </li>
-                ))}
-              </ul>
+              {project.systems.length > 0 ? (
+                <>
+                  <h3 className="text-overline text-brass-ink mt-12">Sistemas constructivos</h3>
+                  <ul className="mt-5 space-y-2.5">
+                    {project.systems.map((system) => (
+                      <li key={system} className="text-graphite flex gap-3 text-sm leading-relaxed">
+                        <span aria-hidden="true" className="bg-brass mt-2 h-1 w-3.5 shrink-0" />
+                        {system}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
             </Reveal>
 
             <div>
@@ -150,75 +163,79 @@ export default async function ProjectPage({ params }: PageProps<"/proyectos/[slu
                 </div>
               </Reveal>
 
-              <Reveal delay={100} className="mt-14">
-                <h2 className="text-overline text-brass-ink">Alcance del trabajo</h2>
-                <ul className="border-charcoal/10 mt-6 grid gap-px border sm:grid-cols-2">
-                  {project.scope.map((item) => (
-                    <li
-                      key={item}
-                      className="text-charcoal bg-white/70 p-5 text-sm leading-relaxed shadow-[0_0_0_1px_rgba(45,46,51,0.1)]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
+              {project.scope.length > 0 ? (
+                <Reveal delay={100} className="mt-14">
+                  <h2 className="text-overline text-brass-ink">Alcance del trabajo</h2>
+                  <ul className="border-charcoal/10 mt-6 grid gap-px border sm:grid-cols-2">
+                    {project.scope.map((item) => (
+                      <li
+                        key={item}
+                        className="text-charcoal bg-white/70 p-5 text-sm leading-relaxed shadow-[0_0_0_1px_rgba(45,46,51,0.1)]"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              ) : null}
             </div>
           </div>
         </Container>
       </section>
 
-      <section id="galeria" className="bg-sky/50 scroll-mt-24 py-20 text-charcoal lg:py-28">
-        <Container width="wide">
-          <Reveal>
-            <h2 className="text-overline text-brass-ink flex items-center gap-3">
-              <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
-              Galería
-            </h2>
-            <p className="mt-4 text-2xl font-bold text-balance sm:text-3xl">
-              Documentación e imágenes del proyecto
-            </p>
-          </Reveal>
+      {project.gallery.length > 0 ? (
+        <section id="galeria" className="bg-sky/50 scroll-mt-24 py-20 text-charcoal lg:py-28">
+          <Container width="wide">
+            <Reveal>
+              <h2 className="text-overline text-brass-ink flex items-center gap-3">
+                <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
+                Galería
+              </h2>
+              <p className="mt-4 text-2xl font-bold text-balance sm:text-3xl">
+                Documentación e imágenes del proyecto
+              </p>
+            </Reveal>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-14">
-            {project.gallery.map((image, index) => (
-              <Reveal
-                key={image.src}
-                delay={(index % 2) * 100}
-                className={index === 0 ? "sm:col-span-2" : undefined}
-              >
-                <figure>
-                  <div
-                    className={`bg-sky-mid relative overflow-hidden ${
-                      index === 0 ? "aspect-[16/9]" : "aspect-[4/3]"
-                    }`}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes={
-                        index === 0
-                          ? "(min-width: 640px) 90vw, 100vw"
-                          : "(min-width: 640px) 45vw, 100vw"
-                      }
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="text-graphite mt-3 text-sm">{image.caption}</figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-14">
+              {project.gallery.map((image, index) => (
+                <Reveal
+                  key={image.src}
+                  delay={(index % 2) * 100}
+                  className={index === 0 ? "sm:col-span-2" : undefined}
+                >
+                  <figure>
+                    <div
+                      className={`bg-sky-mid relative overflow-hidden ${
+                        index === 0 ? "aspect-[16/9]" : "aspect-[4/3]"
+                      }`}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes={
+                          index === 0
+                            ? "(min-width: 640px) 90vw, 100vw"
+                            : "(min-width: 640px) 45vw, 100vw"
+                        }
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="text-graphite mt-3 text-sm">{image.caption}</figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
 
-          {project.placeholder ? (
-            <p className="text-stone border-charcoal/10 mt-12 border-t pt-8 text-sm">
-              Las imágenes de esta ficha son de relleno mientras se carga el material definitivo del
-              proyecto.
-            </p>
-          ) : null}
-        </Container>
-      </section>
+            {project.placeholder ? (
+              <p className="text-stone border-charcoal/10 mt-12 border-t pt-8 text-sm">
+                Las imágenes de esta ficha son de relleno mientras se carga el material definitivo
+                del proyecto.
+              </p>
+            ) : null}
+          </Container>
+        </section>
+      ) : null}
 
       <section className="bg-bone/45 py-16 lg:py-20">
         <Container width="wide">

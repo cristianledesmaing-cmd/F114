@@ -1,10 +1,17 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowIcon, WhatsappIcon } from "@/components/ui/icons";
-import { services } from "@/data/services";
-import { buildWhatsappHref } from "@/data/site";
+import { buildWhatsappHref, type HomeContent, type SiteContent } from "@/lib/content-types";
 
-export function Services() {
+export function Services({
+  section,
+  services,
+  site,
+}: {
+  section: HomeContent["servicesSection"];
+  services: HomeContent["services"];
+  site: SiteContent;
+}) {
   return (
     <section
       id="servicios"
@@ -14,14 +21,13 @@ export function Services() {
         <Reveal>
           <p className="text-overline text-brass-ink flex items-center gap-3 text-[1.05rem]">
             <span aria-hidden="true" className="bg-brass/60 inline-block h-px w-8" />
-            Servicios
+            {section.overline}
           </p>
           <h2 className="mt-4 max-w-3xl text-4xl leading-[1.08] font-bold text-balance sm:text-5xl lg:text-[3.25rem]">
-            ¿En qué etapa estás?
+            {section.title}
           </h2>
           <p className="text-graphite mt-5 max-w-3xl text-lg leading-relaxed text-pretty sm:text-xl">
-            Podés venir con una idea, con planos listos para construir o con una pregunta puntual.
-            Definimos el alcance según lo que necesites resolver.
+            {section.description}
           </p>
         </Reveal>
 
@@ -32,13 +38,7 @@ export function Services() {
               delay={index * 110}
               className="group border-charcoal/10 relative flex flex-col bg-white/70 p-7 ring-1 ring-black/5 transition-colors duration-500 hover:bg-white sm:p-9 lg:p-11"
             >
-              <span className="text-overline text-brass-ink text-[1rem]">
-                {service.id === "proyecto"
-                  ? "PROYECTO"
-                  : service.id === "obra"
-                    ? "OBRA"
-                    : "CONSULTORÍA"}
-              </span>
+              <span className="text-overline text-brass-ink text-[1rem]">{service.label}</span>
 
               <h3 className="mt-6 text-[2rem] font-bold lg:text-[2.15rem]">{service.title}</h3>
               <p className="text-graphite mt-4 text-xl leading-relaxed text-pretty">
@@ -58,7 +58,7 @@ export function Services() {
               </ul>
 
               <a
-                href={buildWhatsappHref(service.whatsappMessage)}
+                href={buildWhatsappHref(site.contact.whatsapp.number, service.whatsappMessage)}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="text-brass-ink hover:text-brass mt-auto inline-flex items-center gap-2.5 pt-8 text-lg font-semibold transition-colors"

@@ -1,17 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { Fragment, type CSSProperties } from "react";
 
 import { HeroBackground } from "@/components/sections/HeroBackground";
+import { Emphasis } from "@/components/ui/Emphasis";
 import { ArrowIcon, ArrowUpRightIcon, PinIcon } from "@/components/ui/icons";
-import { heroPillars } from "@/data/services";
-import { brand, site, whatsappHref } from "@/data/site";
+import { brand } from "@/data/site";
+import { buildWhatsappHref, type HeroContent, type SiteContent } from "@/lib/content-types";
 
-export function Hero() {
+export function Hero({ hero, site }: { hero: HeroContent; site: SiteContent }) {
+  const whatsappHref = buildWhatsappHref(site.contact.whatsapp.number, site.contact.whatsapp.message);
+
   return (
     <section className="relative isolate h-svh overflow-hidden bg-transparent text-charcoal">
       <div className="absolute inset-x-0 top-20 right-0 bottom-0 overflow-hidden sm:top-[5.25rem] lg:top-22">
-        <HeroBackground />
+        <HeroBackground slides={hero.slides} />
 
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
           <Image
@@ -27,7 +30,7 @@ export function Hero() {
         <div className="relative z-10 flex h-full w-full flex-col justify-center px-10 py-8 sm:px-12 sm:py-10 lg:px-16 lg:py-12">
           <p data-reveal="" className="text-overline text-brass-ink flex items-center gap-2.5 text-[1.05rem]">
             <PinIcon className="h-5 w-5 shrink-0" />
-            Resistencia, Chaco
+            {hero.location}
           </p>
 
           <p
@@ -43,11 +46,13 @@ export function Hero() {
             style={{ "--reveal-delay": "100ms" } as CSSProperties}
             className="font-hero mt-4 max-w-4xl text-5xl leading-[1.04] font-bold tracking-tight sm:mt-5 sm:text-6xl lg:text-[4.75rem]"
           >
-            El diseño y la
-            <br />
-            estructura se
-            <br />
-            deciden <span className="text-brass-ink">juntos.</span>
+            {hero.headlineLines.map((line, index) => (
+              <Fragment key={index}>
+                {line}
+                <br />
+              </Fragment>
+            ))}
+            <span className="text-brass-ink">{hero.headlineAccent}</span>
           </h1>
 
           <p
@@ -55,11 +60,7 @@ export function Hero() {
             style={{ "--reveal-delay": "160ms" } as CSSProperties}
             className="text-graphite mt-5 max-w-2xl text-lg leading-relaxed text-pretty sm:mt-6 sm:text-xl lg:text-[1.35rem]"
           >
-            Hacemos <strong className="text-charcoal font-semibold">proyectos</strong>, dirigimos{" "}
-            <strong className="text-charcoal font-semibold">obras</strong> y brindamos{" "}
-            <strong className="text-charcoal font-semibold">consultoría técnica</strong>. Integramos
-            ingeniería y arquitectura para que las decisiones de diseño tengan en cuenta cómo se va
-            a construir.
+            <Emphasis text={hero.intro} />
           </p>
 
           <div
@@ -73,14 +74,14 @@ export function Hero() {
               rel="noreferrer noopener"
               className="group bg-brass hover:bg-brass-ink inline-flex items-center gap-3 rounded-md px-6 py-3.5 text-lg font-semibold text-white transition-colors"
             >
-              Consultar por WhatsApp
+              {hero.ctaPrimary}
               <ArrowUpRightIcon className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:h-6 sm:w-6" />
             </a>
             <Link
               href="/#servicios"
               className="border-charcoal/20 text-charcoal hover:border-charcoal/50 hover:bg-charcoal/5 inline-flex items-center gap-3 rounded-md border px-6 py-3.5 text-lg font-semibold transition-colors"
             >
-              Ver servicios
+              {hero.ctaSecondary}
               <ArrowIcon className="h-5 w-5" />
             </Link>
           </div>
@@ -90,7 +91,7 @@ export function Hero() {
             style={{ "--reveal-delay": "320ms" } as CSSProperties}
             className="border-charcoal/10 mt-10 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-6 border-t pt-8 sm:mt-12 sm:grid-cols-3"
           >
-            {heroPillars.map((pillar) => (
+            {hero.pillars.map((pillar) => (
               <div key={pillar.label}>
                 <dt className="sr-only">{pillar.label}</dt>
                 <dd>

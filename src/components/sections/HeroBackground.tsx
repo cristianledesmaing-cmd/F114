@@ -3,25 +3,22 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const slides = [
-  { src: "/gallery/obra-01.jpg", alt: "Fachada frontal" },
-  { src: "/gallery/obra-02.jpg", alt: "Fachada con patio" },
-  { src: "/gallery/obra-03.jpg", alt: "Interior de doble altura" },
-  { src: "/gallery/obra-04.jpg", alt: "Patio exterior" },
-] as const;
+import type { HeroSlide } from "@/lib/content-types";
 
 const INTERVAL_MS = 5500;
 
-export function HeroBackground() {
+export function HeroBackground({ slides }: { slides: HeroSlide[] }) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    if (slides.length < 2) return;
+
     const id = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
     }, INTERVAL_MS);
 
     return () => window.clearInterval(id);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">

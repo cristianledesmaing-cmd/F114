@@ -3,18 +3,12 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
 import { InstagramIcon, MailIcon, PinIcon, WhatsappIcon } from "@/components/ui/icons";
-import {
-  brand,
-  contact,
-  emailHref,
-  instagramHref,
-  contactNavLink,
-  navLinks,
-  site,
-  whatsappHref,
-} from "@/data/site";
+import { brand, contactNavLink, navLinks } from "@/data/site";
+import { getSiteContent } from "@/lib/content";
+import { buildEmailHref, buildWhatsappHref } from "@/lib/content-types";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const site = await getSiteContent();
   const year = new Date().getFullYear();
 
   return (
@@ -74,33 +68,36 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-4">
               <li>
                 <a
-                  href={emailHref}
+                  href={buildEmailHref(site.contact.email.address, site.contact.email.subject)}
                   className="group text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <MailIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span className="break-all">{contact.email.address}</span>
+                  <span className="break-all">{site.contact.email.address}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={whatsappHref}
+                  href={buildWhatsappHref(
+                    site.contact.whatsapp.number,
+                    site.contact.whatsapp.message,
+                  )}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <WhatsappIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{contact.whatsapp.display}</span>
+                  <span>{site.contact.whatsapp.display}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={instagramHref}
+                  href={site.contact.instagram.url}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="text-graphite hover:text-brass-ink flex items-start gap-3 text-sm transition-colors"
                 >
                   <InstagramIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{contact.instagram.handle}</span>
+                  <span>{site.contact.instagram.handle}</span>
                 </a>
               </li>
             </ul>

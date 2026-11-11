@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { projects } from "@/data/projects";
-import { site } from "@/data/site";
+import { getPublishedProjects, getSiteContent } from "@/lib/content";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [site, projects] = await Promise.all([getSiteContent(), getPublishedProjects()]);
   const lastModified = new Date();
 
   return [

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ArrowIcon } from "@/components/ui/icons";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/lib/content-types";
 
 type ProjectCardProps = {
   project: Project;
